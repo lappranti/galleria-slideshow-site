@@ -1,0 +1,110 @@
+@import "../../shared/style/variables";
+.wrapper {
+  width: 100%;
+  padding: 0 40px;
+
+  * {
+    transition: all 0.4s ease-in-out;
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding: 0 24px;
+  }
+}
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 40px 0;
+  border-bottom: 1px solid $col3;
+
+  @media only screen and (max-width: 768px) {
+    padding: 29px 0;
+
+    .logo {
+      max-width: 113px;
+      height: 32px;
+    }
+
+    .buttons {
+      gap: 10px;
+
+      .text {
+        margin: 0;
+      }
+    }
+
+    .language-container {
+      .list {
+        bottom: -60px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    padding: 24px 0;
+  }
+}
+
+.logo {
+  cursor: pointer;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @include typo("l1");
+
+  .text {
+    margin-right: 4px;
+  }
+}
+
+.language-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  position: relative;
+
+  .icon {
+    cursor: pointer;
+
+    &:hover {
+      color: $col2;
+    }
+  }
+
+  .list {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+
+    background-color: #ffffff;
+    box-shadow: 0px 8px 24px 0px rgba(1, 12, 21, 0.04);
+
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid $col3;
+    border-radius: 12px;
+
+    &__item {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

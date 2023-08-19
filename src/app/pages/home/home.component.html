@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="grid">
+    <div class="card" *ngFor="let painting of gallerie; let id = index">
+      <img [src]="painting.images.thumbnail" alt="" />
+      <div class="overlay" (click)="handleGotoDetail(id + 1)">
+        <h2 class="name">
+          {{ currentLanguage == "FR" ? painting.name[1] : painting.name[0] }}
+        </h2>
+        <p class="artist">{{ painting.artist.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

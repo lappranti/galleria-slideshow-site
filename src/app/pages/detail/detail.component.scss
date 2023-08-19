@@ -1,0 +1,363 @@
+@import "../../shared/style/variables";
+
+.container {
+  width: 100%;
+  //overflow-x: hidden;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+
+  position: relative;
+
+  * {
+    transition: all 0.4s ease-in-out;
+  }
+
+  &.isModalVisible {
+    overflow: hidden;
+    max-height: 100vh;
+  }
+}
+
+.details {
+  //background-color: red;
+  flex: auto;
+  padding: 70px 40px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .left {
+    display: flex;
+    gap: 30px;
+    .image-painting {
+      max-width: 475px;
+      max-height: 560px;
+
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+
+      img {
+        display: block;
+      }
+
+      .zoom {
+        position: absolute;
+        bottom: 16px;
+        left: 16px;
+        z-index: 2;
+
+        padding: 14px 16px;
+        background-color: $col1;
+
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        font-size: 10px;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 2.143px;
+        color: $col5;
+        cursor: pointer;
+
+        i {
+          font-size: 12px;
+        }
+
+        &:hover {
+          background-color: #ffffff25;
+        }
+
+        @media only screen and (max-width: 725px) {
+          top: 16px;
+          bottom: auto;
+        }
+      }
+    }
+
+    .detail-resume {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .top {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background-color: $col5;
+        padding: 0 0 36px 65px;
+
+        position: relative;
+        top: 0;
+        left: -95px;
+      }
+
+      .painting-name {
+        @include typo("h1");
+        max-width: 350px;
+      }
+
+      .artist {
+        @include typo("sh1");
+        color: $col2;
+      }
+
+      .bottom {
+      }
+    }
+  }
+
+  .right {
+    max-height: 560px;
+    display: flex;
+    flex-direction: column;
+
+    .date {
+      @include typo("d");
+      color: $col4;
+    }
+
+    .description {
+      max-width: 350px;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 28px;
+      color: $col2;
+      position: relative;
+      top: -45px;
+      z-index: 2;
+    }
+
+    .source {
+      margin-top: auto;
+      @include typo("l2");
+      color: $col2;
+
+      &:hover {
+        color: $col1;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    padding: 40px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding: 24px;
+  }
+
+  @media only screen and (max-width: 1260px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 64px;
+
+    .right {
+      .date {
+        text-align: center;
+      }
+      .description {
+        max-width: 950px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 830px) {
+    .left {
+      position: relative;
+      .detail-resume {
+        justify-content: flex-end;
+
+        .top {
+          left: 30%;
+          padding: 0 65px 65px;
+          // background-color: red;
+          position: absolute;
+          z-index: 10;
+        }
+
+        .painting-name {
+          max-width: none;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 725px) {
+    .left {
+      flex-direction: column;
+
+      .image-painting {
+        img {
+          width: 100%;
+        }
+      }
+
+      .detail-resume {
+        .top {
+          position: relative;
+          left: 0px;
+          top: -60px;
+          padding: 24px 16px;
+          max-width: 300px;
+        }
+
+        .painting-name {
+          font-size: 40px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .left {
+      .detail-resume {
+        .top {
+          //top: -100px;
+          max-width: 250px;
+        }
+        .painting-name {
+          @include typo("h2");
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .right {
+      max-height: none;
+
+      .date {
+        font-size: calc(90px + 1rem);
+        text-align: normal;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+  }
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 40px;
+  position: relative;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .painting-name {
+    @include typo("h3");
+  }
+
+  .artist {
+    @include typo("sh2");
+    color: #00000075;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    i {
+      font-size: 24px;
+      cursor: pointer;
+
+      &:hover {
+        color: $col2;
+      }
+    }
+  }
+
+  border-top: 1px solid $col3;
+
+  .loader {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    display: block;
+    height: 1px;
+    background-color: $col1;
+  }
+
+  @media only screen and (max-width: 400px) {
+    padding: 24px;
+
+    .painting-name {
+      font-size: 14px;
+    }
+
+    .artist {
+      font-size: 10px;
+    }
+
+    .right {
+      gap: 8px;
+
+      i {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+
+  background-color: #000000;
+  padding: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .btn-close {
+      display: flex;
+      justify-content: flex-end;
+      cursor: pointer;
+
+      font-size: 14px;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 3px;
+
+      color: $col5;
+    }
+
+    .image {
+      max-width: 600px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}

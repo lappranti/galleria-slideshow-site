@@ -1,0 +1,50 @@
+//###Colors
+$col1: #000000;
+$col2: #7d7d7d;
+$col3: #e5e5e5;
+$col4: #f3f3f3;
+$col5: #ffffff;
+
+//###  Typography
+@mixin typo($type) {
+  @if ($type == "d") {
+    font-size: calc(100px + 5rem);
+    font-weight: 700;
+    line-height: 150px;
+  } @else if($type == "h1") {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 64px;
+  } @else if($type == "h2") {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+  } @else if($type == "h3") {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+  } @else if($type == "sh1") {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: normal;
+  } @else if($type == "sh2") {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+  } @else if($type == "l1") {
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2.571px;
+  } @else if($type == "l2") {
+    font-size: 9px;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.929px;
+  } @else if($type == "b") {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+}

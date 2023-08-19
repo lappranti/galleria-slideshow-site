@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="logo" (click)="handleGotoHome()">
+      <img src="./../../../assets/shared/logo.svg" alt="" />
+    </div>
+    <div class="buttons">
+      <span class="language-container">
+        <span class="icon"><i class="bi bi-globe"></i></span>
+        <span class="text">{{ selectedLang }}</span>
+        <span class="icon" (click)="handleToggleMenu()">
+          <i class="bi bi-chevron-up  chevron" *ngIf="showMenu"></i>
+          <i class="bi bi-chevron-down chevron" *ngIf="!showMenu"></i>
+        </span>
+        <ul class="list" *ngIf="showMenu">
+          <li class="list__item" (click)="handleSelectLang('EN')">EN</li>
+          <li class="list__item" (click)="handleSelectLang('FR')">FR</li>
+        </ul>
+      </span>
+    </div>
+  </div>
+</div>
